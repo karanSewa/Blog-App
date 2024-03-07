@@ -16,7 +16,7 @@
     <%- include("header.ejs") %>
 
     <div class="container blog-container">
-      <p class="text-center text-danger fs-1">View Your Posts here</p>
+      <p class="text-center text-danger fs-1">Your all posts</p>
 
       <div class="row">
         <div class="col">
@@ -24,9 +24,10 @@
             <% if(locals.posts) {%> <% posts.forEach((post, index) =>{ %>
 
             <li class="fs-4 blog-items">
+              <p><%= new Date().toLocaleDateString();%></p>
               <h1 class="fs-1"><%= post.title %></h1>
               <br />
-              # <%= post.content %> <br />
+              <%= post.content %> <br />
               <form
                 id="deleteFormbtn"
                 action="/delete/<%= index %>"
@@ -36,6 +37,7 @@
                   type="submit"
                   class="btn btn-lg btn-danger"
                   value="delete"
+                  id="deleteBtn"
                 />
               </form>
               <form id="editFormbtn" action="/edit/<%= index  %>" method="get">
@@ -43,6 +45,15 @@
                   type="submit"
                   class="btn btn-lg btn-success"
                   value="edit"
+                  id="editBtn"
+                />
+              </form>
+              <form id="viewFormbtn" action="/view/<%= index  %>" method="get">
+                <input
+                  type="submit"
+                  class="btn btn-lg btn-outline-dark"
+                  value="view"
+                  id="viewBtn"
                 />
               </form>
             </li>
