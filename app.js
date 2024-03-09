@@ -39,10 +39,14 @@ app.post("/edit/:id", (req, res) => {
 });
 app.get("/view/:id", (req, res) => {
   let postId = req.params.id;
+  res.render("partials/view.ejs", { post: blogPosts[postId], id: postId });
+});
+app.post("view/:id", (req, res) =>{
+  let postId = req.params.id;
   let postTitle = req.body["blogHeading"];
-  let postContent = req.body["blogContent"];
+  let postContent = req.body["blogText"];
   blogPosts[postId] = { title: postTitle, content: postContent };
-  res.render("partials/view.ejs", { post: blogPosts[postId] });
+  res.redirect("/posts");
 });
 app.listen(port, () => {
   console.log(`Server listening on port: ${port}`);

@@ -11,58 +11,35 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+   
   </head>
   <body>
     <%- include("header.ejs") %>
 
-    <div class="container-fluid blog-textContainer p-5">
+   
       <p class="text-center text-danger fs-1 mb-5">Create new post</p>
-      <div class="container">
-        <div class="main text-center border border-1 border-dark">
-          <form
-            class="border-2"
-            action="/posts"
-            method="POST"
-            autocomplete="off"
-          >
-            <div class="container form-container">
-              <div class="blogHeadContainer">
-                <label class="fs-3 text-danger mb-2" for="blogHeading"
-                  >tittle</label
-                >
-                <br />
-                <input
-                  type="text"
-                  name="blogHeading"
-                  id="blogHeading"
-                  required
-                />
-              </div>
-              <div class="blogTextarea">
-                <label class="fs-3 text-danger mb-2" for="blogText">post</label>
-                <br />
-                <textarea
-                  type="text"
-                  name="blogText"
-                  id="blogText"
-                  required
-                ></textarea>
-              </div>
-              <div class="blogButton">
-                <button
-                  class="btn btn-dark btn-lg"
-                  type="submit"
-                  id="submit"
-                  value="submit"
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-          </form>
+
+        <div class="container-fluid main p-3">
+              <form class="rounded-2" action="/posts" method="POST" autocomplete="off">
+                  <div class="blogHeadContainer">
+                    <label class="fs-3 text-danger mb-2" for="blogHeading">tittle</label>
+                    <br />
+                    <input class="border border-1 border-danger rounded-2" type="text" name="blogHeading" id="blogHeading" placeholder="Enter title for post" required/>
+                  </div>
+                  <div class="blogTextarea">
+                    <label class="fs-3 text-danger mb-2" for="blogText">post</label>
+                    <br />
+                    <textarea class="border border-1 border-danger rounded-2" type="text" name="blogText" id="blogText" placeholder="write your post here😊" required></textarea>
+                  </div>
+                  <div class="blogButton">
+                    <button class="btn btn-dark btn-lg btn-outline-danger m-3" type="submit" id="submit" value="submit">
+                      Submit
+                    </button>
+                  </div>
+             </form>
         </div>
-      </div>
-    </div>
+  
+
 
     <%- include("footer.ejs") %>
     <script src="app.js"></script>

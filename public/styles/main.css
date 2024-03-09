@@ -3,7 +3,6 @@ body {
   justify-content: space-between;
   flex-direction: column;
   height: 100vh;
-  background-color: red;
 }
 nav {
   display: flex;
@@ -17,22 +16,15 @@ nav h1 {
   font-size: 3rem;
   font-family: "Courier New", Courier, monospace;
 }
-
-.navLinks {
-  display: flex;
-  flex-wrap: wrap;
-  font-weight: 600;
+.navLinks{
+display: flex;
+padding: 10px;
 }
-.brand-heading {
-  font-size: 3rem;
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(48, 12, 12);
-}
-.nav-link {
+.navLinks a{
   margin: 20px;
-  text-decoration: none;
-  color: rgb(48, 12, 12);
-  font-weight: 600;
+}
+.topnav .icon{
+  display: none;
 }
 .welcom-img:hover {
   transform: rotate(-15deg);
@@ -53,22 +45,21 @@ li {
   margin: 10px;
   padding: 5%;
 }
+.blog-items-row{
+  justify-content: center;
+}
 .main {
-  background-color: rgba(209, 198, 198, 0.227);
-  border-radius: 5px;
-  max-width: 35rem;
-}
-form {
-  text-align: center;
-}
-.form-container {
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  gap: 10px;
-  padding: 5%;
+  justify-content: center;
   border-radius: 5px;
 }
+
+.main form {
+  border: 2px solid gray;
+  text-align: center;
+  width: 35rem;
+}
+
 h1 {
   margin-bottom: 2rem;
 }
@@ -102,6 +93,7 @@ h1 {
 #editBtn:hover {
   letter-spacing: 1.5px;
   transition: 0.5s;
+  margin: 0 5px;
 }
 #viewBtn:hover {
   letter-spacing: 3px;
@@ -109,6 +101,7 @@ h1 {
 }
 
 .view-container {
+  justify-content: center;
   margin: 10%;
 }
 footer {
@@ -127,17 +120,19 @@ footer {
   margin: 12px;
 }
 
-@media screen and(max-width: 368px) {
-}
-/* @media screen and (max-width: 768px) {
+
+@media screen and (max-width: 768px) {
   nav .brand,
   h1 {
     font-size: 2rem;
     width: 100%;
   }
-
   #blogText,
   #blogHeading {
     width: 60%;
   }
-} */
+}
+
+
+ 
+

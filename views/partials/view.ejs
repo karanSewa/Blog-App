@@ -14,11 +14,13 @@
   </head>
   <body>
     <%- include("header.ejs") %>
-    <div class="container-fluid blog-container view-container">
+    <div class="container border border-1 border-dark p-5 m-5 blog-container view-container">
       <p><%= new Date().toLocaleDateString();%></p>
+      
       <h1 class="fs-1"><%= post.title %></h1>
       <br />
-      <%= post.content %> <br />
+      <p class="fs-3"><%= post.content %></p>
+
     </div>
     <%- include("footer.ejs" )%>
   </body>
