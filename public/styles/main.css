@@ -279,6 +279,13 @@ footer {
  .post-content, hr{
   width: 100%;
  }
+ /* ########## creat post form ######## */
+ .form-container form{
+  width: 100%;
+}
+#view .view-post{
+  width: 100%;
+}
 }
 @media(max-width: 860px){
   .navbar-container input[type="checkbox"], .nav-lines{
@@ -362,6 +369,13 @@ footer {
 @media(max-width: 410px){
   .navbar-container{
     position: static;
+  }
+  .navbar-container h1{
+    font-size: 22px;
+  }
+  .navbar-container input[type="checkbox"], .nav-lines {
+    height: 27px;
+    width: 34px;
   }
 }
 
