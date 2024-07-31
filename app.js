@@ -2,10 +2,13 @@ import express from "express";
 import ejs from "ejs";
 const app = express();
 const port = 3000;
+
 let blogPosts = [];
+
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
@@ -49,5 +52,5 @@ app.post("view/:id", (req, res) =>{
   res.redirect("/posts");
 });
 app.listen(port, () => {
-  console.log(`Server listening on port: ${port}`);
+  console.log(`Server started on https://localhost:${port}`);
 });

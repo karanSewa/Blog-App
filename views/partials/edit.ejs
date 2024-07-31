@@ -14,34 +14,29 @@
   </head>
   <body>
     <%- include("header.ejs") %>
-
-    <div class="container blog-textContainer">
-      <p class="text-center text-danger fs-1">Edit Post</p>
-      <div class="main text-center">
+    <section id="edit" class="container-fluid">
+  
+      <h2 class="text">Edit Post</h2>
         <% if(locals.post) {%>
-        <form class="border-2" action="/edit/<%= id %>" method="POST" autocomplete="off">
-          <div class="container form-container">
-            <div class="blogHeadContainer">
-              <label class="fs-3 text-danger mb-2" for="blogHeading">tittle</label>
-              <br />
-              <input class="rounded-2 border border-danger border-2" type="text" name="blogHeading" id="blogHeading" value="<%= post.title %>" required />
-            </div>
-            <div class="blogTextarea">
-              <label class="fs-3 text-danger mb-2" for="blogText">post</label>
-              <br />
-              <textarea class="rounded-2 border border-danger border-2" type="text" name="blogText" id="blogText" required ><%= post.content %></textarea>
-            </div>
-            <div class="blogButton">
-              <button class="btn btn-dark btn-lg" type="submit" id="submit" value="edit">
-                Save Post
-              </button>
-               <% } %>
-            </div>
+          <div class="form-container container">
+            <form action="/edit/<%= id %>" method="POST" autocomplete="off">
+                <div class="blogHeadContainer">
+                  <label for="blogHeading">tittle</label>
+                  <br />
+                  <input type="text" name="blogHeading" id="blogHeading" value="<%= post.title %>" required />
+                </div>
+                <div class="blogTextarea">
+                  <label for="blogText">post</label>
+                  <br />
+                  <textarea type="text" name="blogText" id="blogText" required ><%= post.content %></textarea>
+                </div>
+                  <button class="btn btn-outline-danger" type="submit" id="submit" value="edit">
+                    Save Post
+                  </button>
+                  <% } %>   
+           </form>
           </div>
-        </form>
-      </div>
-    </div>
-
+  </section>
     <%- include("footer.ejs") %>
     <script src="app.js"></script>
   </body>

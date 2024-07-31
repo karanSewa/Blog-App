@@ -1,109 +1,244 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   height: 100vh;
 }
+
+
+/* ########################## Navigation Bar ###########################*/
 nav {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 0 3rem;
+  box-shadow: 5px 5px 10px #1f1d1d;
+}
+.navbar-container{
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  padding: 2rem;
-  margin-bottom: 5%;
+  align-items: center;
+  height: 80px;
+  position: relative;
 }
-nav h1 {
-  display: inline-block;
-  font-size: 3rem;
-  font-family: "Courier New", Courier, monospace;
+.navbar-container input[type="checkbox"]{
+  opacity: 0;
 }
-.navLinks{
-display: flex;
-padding: 10px;
-}
-.navLinks a{
-  margin: 20px;
-}
-.topnav .icon{
+.navbar-container input[type="checkbox"], .nav-lines{
   display: none;
 }
-.welcom-img:hover {
-  transform: rotate(-15deg);
-  transition: 0.5s;
+.logo{
+  order: -1;
+  font-size: 2rem;
+  text-transform: uppercase;
 }
-li {
-  list-style-type: none;
+.navigation-links {
+  transition: transform 0.3s ease-in-out;
 }
+.navigation-links .nav-item{
+  font-size: 22px;
+  color: rgb(220, 53, 69);
+}
+.navigation-links .nav-item + .nav-item {
+  margin-left: 22px;
+}
+/* ################################## main ############################ */
 
-.blog-container,
-.blog-textContainer {
-  border-radius: 5px;
-  padding: 20px;
-}
-.blog-items {
-  border: 0.5px solid gray;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 5%;
-}
-.blog-items-row{
+    /* ######## hero section ########## */
+
+.hero-container{
+  display: flex;
+  align-items: center;
   justify-content: center;
+  height: 100%;
+  padding: 9rem 0;
 }
-.main {
+.hero-img{
   display: flex;
   justify-content: center;
-  border-radius: 5px;
+  align-items: center;
+  width: 30%;
+}
+.hero-container:hover .hero-img{
+  animation: hero-animation 1s ease-in-out forwards;
+  transform: translateX(-150%);
+}
+.hero-container:hover .hero-txt{
+  animation: hero-animation 1s ease-in-out forwards;
+  transform: translateX(150%);
 }
 
-.main form {
-  border: 2px solid gray;
+@keyframes hero-animation {
+  100%{
+    transform: translateX(0);
+  }
+}
+.greeting-txt{
+  font-size: 1.5rem;
+  color: #666;
+  font-weight: 500;
+}
+.hero-img img{
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  height: auto;
+}
+
+/* ######################  features section ################################*/
+#features{
+  background: rgb(239, 240, 241);
+}
+#features-heading{
+  color: #666;
+  font-size: 26px;
+  text-transform: uppercase;
+  font-weight: 400;
   text-align: center;
-  width: 35rem;
+  padding-top:4rem;
+}
+.features-container{
+  display: flex;
+  /* flex-wrap: wrap; */
+  padding: 4rem 0;
+}
+.features-container .feature h3{
+  font-size: 24px;
+  text-align: center;
+  color: #666;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.features-container .feature h4{
+  font-size: 18px;
+  text-align: center;
+  color: #666;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
-h1 {
+.feature-img-container, .feature-txt-container{
+  padding:0 20px;
+}
+.features-container .feature-img-container img{
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.features-container .feature-txt-container p{
+  height: auto;
+  width: 100%;
+  color: #666;
+  font-weight: 500;
+}
+
+/* ############################### create new post section ######################### */
+#create-post{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 9rem 0;
+}
+#create-post h2{
+  text-align: center;
+  text-transform: uppercase;
+  color: #666;
+  font-size: 26px;
   margin-bottom: 2rem;
 }
-#blogHeading {
-  border: gray;
-  height: 3.5rem;
-  width: 75%;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
-}
-#blogText {
-  border: gray;
-  height: 9rem;
-  width: 75%;
-  font-size: 20px;
-  padding: 10px;
-}
-
-#deleteFormbtn,
-#editFormbtn,
-#viewFormbtn {
-  display: inline-block;
-  margin-top: 2rem;
-}
-
-#deleteBtn:hover {
-  letter-spacing: 3px;
-  transition: 0.5s;
-}
-#editBtn:hover {
-  letter-spacing: 1.5px;
-  transition: 0.5s;
-  margin: 0 5px;
-}
-#viewBtn:hover {
-  letter-spacing: 3px;
-  transition: 0.5s;
-}
-
-.view-container {
+.form-container{
+  display: flex;
   justify-content: center;
-  margin: 10%;
 }
+.form-container form{
+  width: 50%;
+  border: 4px solid rgb(220, 53, 69);
+  padding: 30px;
+}
+.form-container form label{
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+#blogHeading{
+  margin-bottom: 10px;
+}
+
+#blogHeading, #blogText{
+  border: none;
+  border-bottom: 2px solid gray;
+  outline: none;
+  width: 100%;
+}
+/* ####################### all posts section ################################### */
+
+#allPosts{
+  padding: 9rem 0;
+}
+.post-container .thePost{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.post-container h2{
+  text-align: center;
+  text-transform: uppercase;
+  color: #666;
+  font-size: 26px;
+  margin-bottom: 2rem;
+}
+hr{
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-content, hr{
+  width: 65%;
+}
+.post-container ul{
+  padding-left: 0;
+}
+.post-container ul li{
+  list-style: none;
+}
+.post-container .post-btn{
+  display: flex;
+  justify-content: space-between;
+  max-width: 15rem;
+}
+/* ############################# view section ####################################### */
+#view{
+  padding: 9rem 0;
+}
+#view .view-post{
+  padding: 2rem;
+  width: 55%;
+}
+
+/* ####################### edit section #################################*/
+#edit{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 9rem 0;
+}
+#edit h2{
+  text-align: center;
+}
+/* ############################# footer #################################*/
 footer {
   display: flex;
   flex-direction: column;
@@ -120,19 +255,109 @@ footer {
   margin: 12px;
 }
 
-
-@media screen and (max-width: 768px) {
-  nav .brand,
-  h1 {
-    font-size: 2rem;
-    width: 100%;
+@media(max-width: 995px){
+  .hero-container{
+    flex-direction: column;
+    text-align: center;
   }
-  #blogText,
-  #blogHeading {
-    width: 60%;
+  .hero-img{
+    margin-bottom: 2rem;
   }
+  .hero-txt .greeting-txt {
+    font-size: 1.2rem;
+  }
+  
+/*############ features ############# */
+.features-container{
+  flex-direction: column;
+}
+.feature1, .feature2{
+  margin-bottom: 2rem;
 }
 
+/* ############ posts ############### */
+ .post-content, hr{
+  width: 100%;
+ }
+}
+@media(max-width: 860px){
+  .navbar-container input[type="checkbox"], .nav-lines{
+    display: block;
+  }
+  .navbar-container .logo{
+    position: absolute;
+    right: 1.3rem;
+  }
+  .navbar-container input[type="checkbox"]{
+    z-index: 2;
+  }
+  .navbar-container input[type="checkbox"],
+  .nav-lines{
+    height: 32px;
+    width: 40px;
+    position: absolute;
+  }
+  .nav-lines{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+  }
+  .nav-lines .line{
+    height: 4px;
+    width: 100%;
+    border-radius: 20px;
+  }
+  .navigation-links{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    top: 5rem;
+    left: -3.2rem;
+    width: 400px;
+    height: 100vh;
+    transform: translateX(-150%);
+  }
+  .navigation-links{
+    box-shadow: 5px 5px 10px #1f1d1d;
+  }
+  .navigation-links  .nav-item{
+    font-size: 24px;
+    align-self: center;
+    padding: 30px 0;
+    width: 100%;
+    text-align: center;
+  }
+  .navigation-links  .nav-item + .nav-item{
+    margin-left: 0;
+  }
 
- 
+  .navigation-links  .nav-item:hover{
+    background-color: rgb(220, 53, 69);
+    color: rgb(33 37 41);
+  }
+
+  .navigation-links a:not(:first-child){
+    margin-top: 20px;
+  }
+  .navbar-container input[type="checkbox"]:checked ~ .navigation-links{
+    transform: translateX(0);
+  }
+  
+  .navbar-container input[type="checkbox"]:checked ~ .nav-lines .line1{
+    transform-origin: 0% 0%;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease-in-out;
+  }
+  .navbar-container input[type="checkbox"]:checked ~ .nav-lines .line2{
+    transform: scaleY(0);
+    transition: transform 0.3s ease-in-out;
+}
+.navbar-container input[type="checkbox"]:checked ~ .nav-lines .line3{
+  transform-origin: 0% 100%;
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+}
+
 

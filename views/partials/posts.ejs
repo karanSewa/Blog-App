@@ -14,36 +14,40 @@
   </head>
   <body>
     <%- include("header.ejs") %>
-    <div class="container blog-container">
-      <p class="text-center text-danger fs-1">Your all posts</p>
-
-      <div class="row blog-items-row">
-        <div class="col-8">
+    <section id="allPosts" class="container-fluid">
+    <div class="container post-container">
+      <h2>Your all posts</h2>
           <ul>
             <% if(locals.posts) {%> <% posts.forEach((post, index) =>{ %>
-            <li class="fs-4 blog-items">
-              <p><%= new Date().toLocaleDateString();%></p>
-              <h1 class="fs-1"><%= post.title %></h1>
-              <br />
-              <p><%= post.content %></p> <br />
-              <form id="deleteFormbtn" action="/delete/<%= index %>" method="post">
-                <input type="submit" class="btn btn-lg btn-danger" value="delete" id="deleteBtn"/>
-              </form>
-              <form id="editFormbtn" action="/edit/<%= index  %>" method="get">
-                <input type="submit" class="btn btn-lg btn-success" value="edit" id="editBtn"/>
-              </form>
-              <form id="viewFormbtn" action="/view/<%= index  %>" method="get">
-                <input type="submit" class="btn btn-lg btn-outline-dark" value="view" id="viewBtn"/>
-              </form>
-            </li>
-            <% }); %> 
-            <% } else { %>
-              <p class="fs-1 bg-danger">Hello</p>
-              <% } %>
-          </ul>
-        </div>
-      </div>
+              <li class="blog-items">
+                <div class="thePost">
+                   <div class="post-content">
+                      <p><%= new Date().toLocaleString();%></p>
+                      <h4><%= post.title %></h4>
+                      <p><%= post.content %></p>
+                      <div class="post-btn">
+                        <form id="deleteFormbtn" action="/delete/<%= index %>" method="post">
+                          <input type="submit" class="btn btn-lg btn-danger" value="delete" id="deleteBtn"/>
+                        </form>
+                        <form id="editFormbtn" action="/edit/<%= index  %>" method="get">
+                          <input type="submit" class="btn btn-lg btn-success" value="edit" id="editBtn"/>
+                        </form>
+                        <form id="viewFormbtn" action="/view/<%= index  %>" method="get">
+                          <input type="submit" class="btn btn-lg btn-outline-dark" value="view" id="viewBtn"/>
+                        </form>
+                    </div>
+                   </div>
+         
+                    </li>
+                    <hr>
+                    <% }); %> 
+                    <% } else { %>
+                      <p class="fs-1 bg-danger">Hello</p>
+                      <% } %>
+                </div>
+         </ul>
     </div>
+  </section>
     <%-include("footer.ejs") %>
 
     <script src="app.js"></script>
